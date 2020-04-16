@@ -1,20 +1,9 @@
 <?php
-$mysql_host = 'localhost';
-$mysql_user = 'root';
+$servername = "localhost";
+$username = "khushbu";
+$password = "Prkandmap23gr8";
+$dbname = "hotelmngmnt";
 
-if(!@myswl_connect($mysql_host,$mysql_user))
-{
-    die('Cannot connect');
-}
-else
-{
-    if(@mysql_select_db('server'))
-    {
-        echo "Connection Success";
-    }
-    else
-    {
-        die('Cannot connect');
-    }
-}
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 ?>

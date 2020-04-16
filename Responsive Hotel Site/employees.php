@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Customer</title>
+    <title>Employees</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/superfish.css">		
+    <link rel="stylesheet" href="css/superfish.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cs-select.css">
 
@@ -33,7 +33,7 @@
     .con2 {
     background: url("img/interesting-facts-about-French-Polynesia-1568x1080.jpg");
     height: 128vh;
-    
+
     background-size: cover;
     background-position: center center; }
 
@@ -60,13 +60,13 @@
 		<header id="fh5co-header-section">
 			<div class="container">
 				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"></a>
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 					<h1 id="fh5co-logo"><a>VACATION</a></h1>
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li><a class="active" href="customer.php">Customers</a></li>
+							<li><a href="customer.php">Customers</a></li>
 							<li>
-								<a class="fh5co-sub-ddown">Employees</a>
+								<a class="fh5co-sub-ddown active">Employees</a>
 								<ul class="fh5co-sub-menu">
 									<li><a href="employees.php">View employees</a></li>
 									<li><a href="#">Add employee</a></li>
@@ -90,22 +90,21 @@
                     <!--<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">-->
                         <div class="panel panel-default" style="width:80%;height:400px;text-align:center;margin-left:90px">
                             <?php
-                                include("dbconnect.php");   
-                                $sql = "SELECT * FROM customer";
+                                include("dbconnect.php");
+                                $sql = "SELECT * FROM employees";
                                 $name = $conn->query($sql);
-                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>CID</th><th class='table_style'>Fname</th><th class='table_style'>Lname</th><th class='table_style'>Email</th><th class='table_style'>Address</th><th class='table_style'>Phone</th><th class='table_style'>DOB</th><th class='table_style'>Aadhar</th></tr>";
+                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>EID</th><th class='table_style'>Fname</th><th class='table_style'>Lname</th><th class='table_style'>Mobile</th><th class='table_style'>Sal</th><th class='table_style'>Address</th><th class='table_style'>DOB</th><th class='table_style'>J_Dt</th></tr>";
                                 while($row = $name->fetch_assoc())
                                 {
-                                    echo "<tr><td class='table_style'>".$row["CID"]."</td><td class='table_style'>".$row["Fname"]."</td><td class='table_style'>".$row["Lname"]."</td><td class='table_style'>".$row["Email"]."</td><td class='table_style'>".$row["Address"]."</td><td class='table_style'>".$row["Phone"]."</td><td class='table_style'>".$row["DOB"]."</td><td class='table_style'>".$row["Aadhar"]."</td></tr>";
-                                } 
+                                    echo "<tr><td class='table_style'>".$row["EID"]."</td><td class='table_style'>".$row["Fname"]."</td><td class='table_style'>".$row["Lname"]."</td><td class='table_style'>".$row["Mobile"]."</td><td class='table_style'>".$row["Sal"]."</td><td class='table_style'>".$row["Address"]."</td><td class='table_style'>".$row["DOB"]."</td><td class='table_style'>".$row["J_Dt"]."</td></tr>";
+                                }
                                 echo "</table>";
-                            ?> 
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
 </body>
 </html>
