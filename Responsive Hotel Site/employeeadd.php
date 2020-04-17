@@ -87,24 +87,36 @@
         <div class="container">
             <div class="container" id="container1">
                 <div class="row centered-form">
-                    <!--<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">-->
                         <div class="panel panel-default" style="width:80%;height:400px;text-align:center;margin-left:90px">
                             <?php
                                 include("dbconnect.php");
-                                $sql = "SELECT * FROM employees";
-                                $name = $conn->query($sql);
-                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>EID</th><th class='table_style'>Fname</th><th class='table_style'>Lname</th><th class='table_style'>Mobile</th><th class='table_style'>Sal</th><th class='table_style'>Address</th><th class='table_style'>DOB</th><th class='table_style'>J_Dt</th></tr>";
-                                while($row = $name->fetch_assoc())
+                                if(isset($_POST['submit']))
                                 {
-                                    echo "<tr><td class='table_style'>".$row["EID"]."</td><td class='table_style'>".$row["Fname"]."</td><td class='table_style'>".$row["Lname"]."</td><td class='table_style'>".$row["Mobile"]."</td><td class='table_style'>".$row["Sal"]."</td><td class='table_style'>".$row["Address"]."</td><td class='table_style'>".$row["DOB"]."</td><td class='table_style'>".$row["J_Dt"]."</td></tr>";
+                                    $EID=$_POST['eid'];
+                                    $fname=$_POST['first_name'];
+                                    $lname=$_POST['last_name'];
+                                    $mobile=$_POST['mobile'];
+                                    $sal=$_POST['salary'];
+                                    $add=$_POST['address'];
+                                    $dob=$_POST['dob'];
+                                    $jdt=$_POST['jdt'];
+                                    $query1="INSERT INTO employees VALUES('$EID','$fname','$lname','$mobile','$sal','$add','$dob','$jdt')";
+                                    $conn->query($query1);
+                                    $sql = "SELECT * FROM employees";
+                                    $name = $conn->query($sql);
+                                    echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>EID</th><th class='table_style'>Fname</th><th class='table_style'>Lname</th><th class='table_style'>Mobile</th><th class='table_style'>Sal</th><th class='table_style'>Address</th><th class='table_style'>DOB</th><th class='table_style'>J_Dt</th></tr>";
+                                    while($row = $name->fetch_assoc())
+                                    {
+                                        echo "<tr><td class='table_style'>".$row["EID"]."</td><td class='table_style'>".$row["Fname"]."</td><td class='table_style'>".$row["Lname"]."</td><td class='table_style'>".$row["Mobile"]."</td><td class='table_style'>".$row["Sal"]."</td><td class='table_style'>".$row["Address"]."</td><td class='table_style'>".$row["DOB"]."</td><td class='table_style'>".$row["J_Dt"]."</td></tr>";
+                                    }
+                                    echo "</table>";
                                 }
-                                echo "</table>";
                             ?>
-                        </div>
+                       </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </body>
-</html>
+</html>-

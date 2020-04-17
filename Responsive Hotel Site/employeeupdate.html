@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Update Employee Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/superfish.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cs-select.css">
+    
+<style>
+body {
+	font: 11px/1.4em Verdana, Arial, Helvetica, sans-serif;
+}
+h1 {
+	color: #99CC00;
+	margin: 0px 0px 5px;
+	padding: 0px 0px 3px;
+	font: bold 18px Verdana, Arial, Helvetica, sans-serif;
+	border-bottom: 1px dashed #E6E8ED;
+}
+#container1 {
+    background-color: transparent;
+	background-size:650px 750px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.con2 {
+  background: url("img/interesting-facts-about-French-Polynesia-1568x1080.jpg");
+  height: 128vh;
+  
+  background-size: cover;
+  background-position: center center; }
+
+.centered-form {
+    margin-top: 121px;
+    margin-bottom: 120px;
+}
+
+.centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 1px 4px 9px;
+}
+
+</style>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="fh5co-header">
+		<header id="fh5co-header-section">
+			<div class="container">
+				<div class="nav-header">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+					<h1 id="fh5co-logo"><a>VACATION</a></h1>
+					<nav id="fh5co-menu-wrap" role="navigation">
+						<ul class="sf-menu" id="fh5co-primary-menu">
+							<li><a href="customer.php">Customers</a></li>
+							<li>
+								<a class="fh5co-sub-ddown active">Employees</a>
+								<ul class="fh5co-sub-menu">
+									<li><a href="employees.php">View employees</a></li>
+									<li><a href="employeeadd.html ">Add employee</a></li>
+									<li><a href="employeeupdate.html">Update employee detail</a></li>
+									<li><a href="employeedelete.html">Remove employee</a></li>
+								</ul>
+							</li>
+							<li><a href="reservations.php">Reservations</a></li>
+							<li><a href="bills.php">Bills</a></li>
+							<li><a href="feedback.php">Feedbacks</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+	</div>
+    <section class="con2">
+        <div class="container">
+            <div class="container" id="container1">
+                <div class="row centered-form">
+                    
+                        <div class="panel panel-default" style="width:80%;height:400px;text-align:center;margin-left:90px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title text-center">Update employee details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" action="employeeupdate.php" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" name="eid" id="eid" class="form-control input-sm" placeholder="EID" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name = "first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" required>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="mobile" id="mobile" class="form-control input-sm" placeholder="Mobile" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="salary" id="salary" class="form-control input-sm" placeholder="Salary" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name="address" id="address" class="form-control input-sm" placeholder="Address" required>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                DOB
+                                                <input type="date" name="dob" id="dob" class="form-control input-sm" placeholder="DOB" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                J_Dt
+                                                <input type="date" name="jdt" id="jdt" class="form-control input-sm" placeholder="J_Dt" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <input type="submit" name="submit" class="btn btn-info btn-block" value="Update">
+                                </form>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
