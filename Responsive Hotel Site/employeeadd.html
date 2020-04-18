@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <title>Add Employee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/superfish.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cs-select.css">
-    
+
 <style>
 body {
 	font: 11px/1.4em Verdana, Arial, Helvetica, sans-serif;
@@ -32,7 +32,7 @@ h1 {
 .con2 {
   background: url("img/interesting-facts-about-French-Polynesia-1568x1080.jpg");
   height: 128vh;
-  
+
   background-size: cover;
   background-position: center center; }
 
@@ -46,6 +46,9 @@ h1 {
     box-shadow: rgba(0, 0, 0, 0.3) 1px 4px 9px;
 }
 
+.form-control.input-sm{
+  height:30px;
+}
 </style>
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -80,23 +83,23 @@ h1 {
 	</div>
     <section class="con2">
         <div class="container">
-            <div class="container" id="container1">
+            <div class="container" id="container1" >
                 <div class="row centered-form">
-                    
-                        <div class="panel panel-default" style="width:80%;height:400px;text-align:center;margin-left:90px;">
+
+                        <div class="panel panel-default" style="width:70%;height:550px;text-align:center;margin-left:160px;">
                             <div class="panel-heading">
-                                <h3 class="panel-title text-center">Add employee</h3>
+                                <h1 class="panel-title text-center">Add employee</h3>
                             </div>
                             <div class="panel-body">
                                 <form role="form" action="employeeadd.php" method="POST">
                                     <div class="form-group">
-                                        <input type="text" name="eid" id="eid" class="form-control input-sm" placeholder="EID" required>
+                                        <input type="text" name="eid" id="eid" class="form-control input-sm" placeholder="EID"  required>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" name = "first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required>
                                     </div>
-        
+
                                     <div class="form-group">
                                         <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" required>
                                     </div>
@@ -117,7 +120,7 @@ h1 {
                                     <div class="form-group">
                                         <input type="text" name="address" id="address" class="form-control input-sm" placeholder="Address" required>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-xs-6 col-sm-6 col-md-6">
                                             <div class="form-group">
