@@ -1,5 +1,5 @@
-<?php ob_start();//to start session .write this in all php files
-    session_start();// to use header function
+<?php ob_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,6 +10,11 @@
   
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <!--<link rel="stylesheet" href="css/cs-skin-border.css">
+    <link rel="stylesheet" href="css/superfish.css">
+    <link rel="stylesheet" href="css/cs-select.css">
+    <link rel="stylesheet" href="css/style.css">
+-->
     
 <style>
 body {
@@ -50,88 +55,101 @@ h1 {
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-        <section class="con2">
-<div class="container">
 
- <div class="container" id="container1">
-        <div class="row centered-form">
-            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center">Reservation Form</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" method="POST" action="reservation2.php">
-                            <div class="form-group">
-                                <input type="text" name="firstnamec" id="first_name" class="form-control input-sm" placeholder="First Name" required>
+   <!-- <div id="fh5co-header">
+		<header id="fh5co-header-section">
+			<div class="container">
+				<div class="nav-header">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+					<h1 id="fh5co-logo"><a>VACATION</a></h1>
+					<nav id="fh5co-menu-wrap" role="navigation">
+						<ul class="sf-menu" id="fh5co-primary-menu">
+							<li><a class="active" href="index.html">Home</a></li>
+							<li><a href="services.html">Services</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="login.html">Admin</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+	</div>-->
+    <section class="con2">
+        <div class="container">
+            <div class="container" id="container1">
+                <div class="row centered-form">
+                    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title text-center">Reservation Form</h3>
                             </div>
-
-                            <div class="form-group">
-                                <input type="text" name="lastnamec" id="last_name" class="form-control input-sm" placeholder="Last Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Phone Number" required>
-                            </div>
-                           <div class="form-group">
-                                <input type="text" name="address" id="address" class="form-control input-sm" placeholder="Address" required>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="panel-body">
+                                <form role="form" method="POST" >
                                     <div class="form-group">
-                                        <input type="text" name="city" id="city" class="form-control input-sm" placeholder="City" required>
+                                        <input type="text" name="firstnamec" id="firstnamec" class="form-control input-sm" placeholder="First Name" required>
                                     </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        DOB<input type="date" name="dob" id="dob" class="form-control input-sm" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="aadharc" id="Aadhar" class="form-control input-sm" placeholder="Aadhar" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" name="email" id="last_name" class="form-control input-sm" placeholder="Your Email" required>
-                            </div>
 
-                            <input type="submit" name="submitc" value="Proceed" class="btn btn-info btn-block">
-                        </form>
-                        <?php
-                            include("dbconnect.php");
-                            echo "hey"; 
-                            if(isset($_POST['submitc']))
-                            {
-                                $fname=$_POST['firstnamec'];
-                                $lname=$_POST['lastnamec'];
-                                //$_SESSION['first_name']=$fname;
-                                //$_SESSION['firstnamec']=$_POST['firstnamec'];
-                                //$_SESSION['lastnamec']=$_POST['lastnamec'];
-                                //$_SESSION['phone']=$_POST['phone'];
-                                //$_SESSION['address']=$_POST['address'];
-                                //$_SESSION['city']=$_POST['city'];
-                                //$_SESSION['dob']=$_POST['dob'];
-                                $_SESSION['aadharc']=$_POST['aadharc'];
-                                //$lname=$_POST['last_name'];
-                                $phone=$_POST['phone'];
-                                $add=$_POST['address'];
-                                //$city=$_POST['city'];
-                                $dob=$_POST['dob'];
-                                $aadhar=$_POST['aadharc'];
-                                $mail=$_POST['email'];
-                                echo "$fname.$lname.$phone.$add.$city.$dob.$aadhar.$mail";
-                                $query1="INSERT INTO customer VALUES(NULL,'$fname','$lname','$mail','$add','$phone','$dob','$aadhar')";
-                                $conn->query($query1) or die("Couldn't insert");
-                                //echo "Customer Added";
-                            }
-                        ?>
+                                    <div class="form-group">
+                                        <input type="text" name="lastnamec" id="lastnamec" class="form-control input-sm" placeholder="Last Name" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Phone Number" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="text" name="address" id="address" class="form-control input-sm" placeholder="Address" required>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <center>Enter DOB in yyyy-mm-dd format only.</center>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="dob" id="dob" class="form-control input-sm" placeholder="DOB" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name="aadharc" id="aadharc" class="form-control input-sm" placeholder="Aadhar" required>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Your Email" required>
+                                    </div>
+
+                                    <input type="submit" name="submitc" value="Proceed" class="btn btn-info btn-block">
+                                </form>
+
+                                <?php
+                                    include("dbconnect.php");
+                                    if(isset($_POST['submitc']))
+                                    {
+                                        $fname=$_POST['firstnamec'];
+                                        $lname=$_POST['lastnamec'];
+                                        $phone=$_POST['phone'];
+                                        $add=$_POST['address'];
+                                        $dob=$_POST['dob'];
+                                        $_SESSION['aadharc']=$_POST['aadharc'];
+                                        $aadhar=$_POST['aadharc'];
+                                        $mail=$_POST['email'];
+                                        $query1="INSERT INTO customer VALUES(NULL,'$fname','$lname','$mail','$add','$phone','$dob','$aadhar')";
+                                        $conn->query($query1) or die("Couldn't insert");
+                                        header('Location: reservation2.php');
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     </div>
-                
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</section>
+    </section>
 </body>
 </html>

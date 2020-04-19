@@ -59,7 +59,7 @@ h1 {
                                 <h3 class="panel-title text-center">Family Details</h3>
                             </div>
                             <div class="panel-body">    
-                                <form role="form" method="POST" action="reservation3.php">
+                                <form role="form" method="POST">
                                     <div class="form-group">
                                         <input type="text" name="firstnamef" id="firstnamef" class="form-control input-sm" placeholder="First Name" required>
                                     </div>
@@ -94,11 +94,9 @@ h1 {
                                 {
                                     $CID3=$row['CID'];
                                 }
-
                                 $query1="INSERT INTO family VALUES('$aadhar','$CID3','$fname','$lname','$age')";
                                 $conn->query($query1) or die("Error");
-                                //echo "Customer Added";
-                                // add or die();
+                                header('Location: reservation3.php');
                             }
                         ?>
                         </div>

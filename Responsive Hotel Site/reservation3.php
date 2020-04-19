@@ -64,7 +64,7 @@
                 <h3 class="panel-title text-center">Room Information</h3>
               </div>
               <div class="panel-body">
-                <form role="form" method="POST" action="reservation4.php">
+                <form role="form" method="POST">
                   <div class="form-group">
                     <label for="room">Choose a Room:</label>
                     <select id="room" name="room">
@@ -74,14 +74,14 @@
                     </select>
                   </div>
 
-                  <div class="form-group">
+                  <!--<div class="form-group">
                     <label for="beds">Choose no. of Beds:</label>
                     <select id="beds" name="beds">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                     </select>
-                  </div>
+                  </div>-->
                   
                   <div class="form-group">
                     <label for="Arrive">Arrival:</label>
@@ -93,8 +93,19 @@
                     <input type="date" name="Depart" id="Depart" class="form-control input-sm" placeholder="Departure" required>
                   </div>
                   
+                  <button name="Check" class="btn btn-info btn-block">Check Availability</button>
+
+                  <input type="text" name="rno" id="rno" class="form-control input-sm" placeholder="Room No" required>
+
                   <input type="submit" value="Proceed" class="btn btn-info btn-block">
                 </form>
+                <?php
+                  include("dbconnect.php");
+                  if(isset($_POST['submitc']))
+                  {
+                    $roomt=$_POST['room'];
+                    $query2="SELECT room.RNO,room.Beds,room.Fare,room.Status,reservation.CheckOut FROM room LEFT OUTER JOIN reservation ON room.RNO=reservation.RNO WHERE room.RType=CASE when $roomt = 'Deluxe' then " ;
+
               </div>
             
             </div>
