@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "Parth";
-$password = "Prkandmap23";
+$username = "khushbu";
+$password = "khushbu_dbms";
 $dbname = "hotelmngmnt";
 
 // Create connection

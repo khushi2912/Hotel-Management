@@ -1,3 +1,6 @@
+<?php ob_start();//to start session .write this in all php files
+    session_start();// to use header function
+  ?>
 <!DOCTYPE html>
 <html>
 
@@ -61,7 +64,7 @@
                 <h3 class="panel-title text-center">Room Information</h3>
               </div>
               <div class="panel-body">
-                <form role="form">
+                <form role="form" method="POST" action="reservation4.php">
                   <div class="form-group">
                     <label for="room">Choose a Room:</label>
                     <select id="room" name="room">
@@ -70,6 +73,7 @@
     									<option value="room3">Executive Suite</option>
                     </select>
                   </div>
+
                   <div class="form-group">
                     <label for="beds">Choose no. of Beds:</label>
                     <select id="beds" name="beds">
@@ -78,17 +82,21 @@
                       <option value="3">3</option>
                     </select>
                   </div>
+                  
                   <div class="form-group">
                     <label for="Arrive">Arrival:</label>
                     <input type="date" name="Arrive" id="Arrive" class="form-control input-sm" placeholder="Arrival" required>
                   </div>
+                  
                   <div class="form-group">
                     <label for="Depart">Departure:</label>
                     <input type="date" name="Depart" id="Depart" class="form-control input-sm" placeholder="Departure" required>
                   </div>
-                  <input type="submit" value="Proceed" formaction="index.html" class="btn btn-info btn-block">
+                  
+                  <input type="submit" value="Proceed" class="btn btn-info btn-block">
                 </form>
               </div>
+            
             </div>
           </div>
         </div>
