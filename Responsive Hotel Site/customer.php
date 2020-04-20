@@ -48,8 +48,8 @@
     }
 
     .table_style {
-        width: 100px;
-        height: 30px;
+        width: 113px;
+        height: 40px;
     }
     </style>
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
@@ -93,7 +93,7 @@
                                 include("dbconnect.php");   
                                 $sql = "SELECT * FROM customer";
                                 $name = $conn->query($sql);
-                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>CID</th><th class='table_style'>Fname</th><th class='table_style'>Lname</th><th class='table_style'>Email</th><th class='table_style'>Address</th><th class='table_style'>Phone</th><th class='table_style'>DOB</th><th class='table_style'>Aadhar</th></tr>";
+                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:25%'><tr><th class='table_style'>&emsp;&emsp;&emsp;&nbsp;&nbsp;CID</th><th class='table_style'>&emsp;&emsp;&emsp;Fname</th><th class='table_style'>&emsp;&emsp;&emsp;Lname</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;Email</th><th class='table_style'>&emsp;&emsp;&emsp;Address</th><th class='table_style'>&emsp;&emsp;&emsp;Phone</th><th class='table_style'>&emsp;&emsp;&emsp;DOB</th><th class='table_style'>&emsp;&emsp;&emsp;Aadhar</th></tr>";
                                 while($row = $name->fetch_assoc())
                                 {
                                     echo "<tr><td class='table_style'>".$row["CID"]."</td><td class='table_style'>".$row["Fname"]."</td><td class='table_style'>".$row["Lname"]."</td><td class='table_style'>".$row["Email"]."</td><td class='table_style'>".$row["Address"]."</td><td class='table_style'>".$row["Phone"]."</td><td class='table_style'>".$row["DOB"]."</td><td class='table_style'>".$row["Aadhar"]."</td></tr>";

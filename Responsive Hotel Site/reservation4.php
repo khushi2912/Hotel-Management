@@ -71,26 +71,59 @@ h1 {
                                     </div>
                                     <div class="form-group">
                                       <label for="CVV">CVV</label>
-                                      <input type="tel" class="form-control input-sm" name="CVV" placeholder="CVV"  required />
+                                      <input type="password" class="form-control input-sm" name="CVV" placeholder="CVV"  required />
                                     </div>
-                                    <input type="submit" value="Proceed" formaction="index.html"class="btn btn-info btn-block">
+                                    <input type="submit" name="final" value="CONFIRM" class="btn btn-info btn-block">
                                 </form>
                                 <?php
                                     include("dbconnect.php");
-                                    if(isset($_POST['submitc']))
+                                    if(isset($_POST['final']))
                                     {
-                                        /*$_SESIION['firstnamec']=$_POST['firstnamec'];
-                                        $_SESSION['lastnamec']=$_POST['lastnamec'];
-                                        $_SESSION['phone']=$_POST['phone'];
-                                        $_SESSION['address']=$_POST['address'];
-                                        $_SESSION['city']=$_POST['city'];
-                                        $_SESSION['dob']=$_POST['dob'];
-                                        $_SESSION['aadharc']=$_POST['aadharc'];*/
+                                        $startdate =strtotime($_SESSION['Arrive']);
+                                        $enddate = strtotime($_SESSION['Depart']);
+                                        $days = ($enddate - $startdate)/60/60/24;
+                                        $roomno=$_SESSION['rno'];
+                                        //echo "$roomno";
+                                        $fare="SELECT Fare from room where RNo='$roomno'";
+                                        $fare1=$conn->query($fare);
+                                        while($row=$fare1->fetch_assoc())
+                                        {
+                                            $fare2=$row['Fare'];
+                                        }
+                                        $Days=$days+1;
+                                        $amount =  $Days * $fare2;
+                                        echo "Total amount to be paid "."$amount";
+
                                         $cardnumber=$_POST['cardNumber'];
+
+                                        $checkin1=$_SESSION['Arrive'];
+                                        $checkout1=$_SESSION['Depart'];
                                         
+                                        $rid="SELECT RID FROM reservations WHERE RNo='$roomno' AND CheckIn='$checkin1' AND CheckOut='$checkout1'";
+                                        $rid1=$conn->query($rid);
+                                        while($row=$rid1->fetch_assoc())
+                                        {
+                                            $rid2=$row['RID'];
+                                        }
+                                        //echo "$rid2";
+                                        $billing="INSERT into bill VALUES(NULL,'$rid2','$amount','$cardnumber')";
+                                        $conn->query($billing) or die("couldn't insert");
+
 
                                     }
                                 ?>
+                                <form method="POST">
+                                <br><br>
+                                    <input type="submit" name="proceed" value="Proceed" class="btn btn-info btn-block">
+                                </form>
+                                <?php
+                                    include("dbconnect.php");
+                                    if(isset($_POST['proceed']))
+                                    {
+                                        header('Location: index.html');
+                                    }
+                                ?>
+
                             </div>
                         </div>
                     </div>

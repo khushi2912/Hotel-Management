@@ -90,12 +90,12 @@
                         <div class="panel panel-default" style="width:80%;height:400px;text-align:center;margin-left:90px">
                             <?php
                                 include("dbconnect.php");
-                                $sql = "SELECT * FROM feedback";
+                                $sql = "SELECT * FROM bill";
                                 $name = $conn->query($sql);
-                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:35%'><tr><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;FID</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Rating</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Comment</th></tr>";
+                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:35%'><tr><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Bno</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;RID</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Amount</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CardNo</th></tr>";
                                 while($row = $name->fetch_assoc())
                                 {
-                                    echo "<tr><td class='table_style'>".$row["FID"]."</td><td class='table_style'>".$row["Rating"]."</td><td class='table_style'>".$row["Comment"]."</td></tr>";
+                                    echo "<tr><td class='table_style'>".$row["Bno"]."</td><td class='table_style'>".$row["RID"]."</td><td class='table_style'>".$row["Amount"]."</td><td class='table_style'>".$row["CardNo"]."</td></tr>";
                                 }
                                 echo "</table>";
                             ?>

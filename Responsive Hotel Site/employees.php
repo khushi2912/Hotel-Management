@@ -48,7 +48,7 @@
     }
 
     .table_style {
-        width: 100px;
+        width: 113px;
         height: 30px;
     }
     </style>
@@ -93,7 +93,7 @@
                                 include("dbconnect.php");
                                 $sql = "SELECT * FROM employees";
                                 $name = $conn->query($sql);
-                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>EID</th><th class='table_style'>Fname</th><th class='table_style'>Lname</th><th class='table_style'>Mobile</th><th class='table_style'>Sal</th><th class='table_style'>Address</th><th class='table_style'>DOB</th><th class='table_style'>J_Dt</th></tr>";
+                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>&emsp;&emsp;&emsp;&emsp;EID</th><th class='table_style'>&emsp;&emsp;&emsp;Fname</th><th class='table_style'>&emsp;&emsp;&emsp;Lname</th><th class='table_style'>&emsp;&emsp;&emsp;Mobile</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;Sal</th><th class='table_style'>&emsp;&emsp;&emsp;Address</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;DOB</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;J_Dt</th></tr>";
                                 while($row = $name->fetch_assoc())
                                 {
                                     echo "<tr><td class='table_style'>".$row["EID"]."</td><td class='table_style'>".$row["Fname"]."</td><td class='table_style'>".$row["Lname"]."</td><td class='table_style'>".$row["Mobile"]."</td><td class='table_style'>".$row["Sal"]."</td><td class='table_style'>".$row["Address"]."</td><td class='table_style'>".$row["DOB"]."</td><td class='table_style'>".$row["J_Dt"]."</td></tr>";

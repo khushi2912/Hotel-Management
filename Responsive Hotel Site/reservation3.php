@@ -109,14 +109,15 @@
                   if(isset($_POST['Check']))
                   {
                     $roomt=$_POST['room'];
+
                     $checkin =$_POST['Arrive'];
                     $checkout=$_POST['Depart'];
-                    $_SESSION['Arrive']=$_POST['Arrive'];   // send a=checkin and checkout to another page to calculate amount
+                    $_SESSION['Arrive']=$_POST['Arrive'];   
                     $_SESSION['Depart']=$_POST['Depart'];
-                    //$depart=$_SESSION
-                    $query1="SELECT room.RNo,room.Beds,room.Fare,room.Status,reserve.CheckIn,reserve.CheckOut from room left join (SELECT RNo, max(CheckIn) CheckIn, max(CheckOut) CheckOut FROM reservations group by RNO) reserve on room.RNo = reserve.RNo WHERE room.RType = '$roomt'";
-                    //$conn->query($query1) or die("Error");
-                    $name= $conn->query($query1);
+
+                    $query9="SELECT room.RNo,room.Beds,room.Fare,reserve.CheckIn,reserve.CheckOut from room left join (SELECT RNo, max(CheckIn) CheckIn, max(CheckOut) CheckOut FROM reservations group by RNO) reserve on room.RNo = reserve.RNo WHERE room.RType = '$roomt'";
+                    //$conn->query($query9) or die("Error");
+                    $name= $conn->query($query9);
                     echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>RNo</th><th class='table_style'>Beds</th><th class='table_style'>Fare</th></tr>";
                     while($row = $name->fetch_assoc())
                     {
@@ -149,9 +150,13 @@
                     {
                       $CID3=$row['CID'];
                     }
+                    //echo $_SESSION['Arrive'];
+                    $checkin =  $_SESSION['Arrive'];
+                    $checkout = $_SESSION['Depart'];
+                    //echo "$checkout";
                     $query2="INSERT INTO reservations VALUES(NULL,'$CID3','$rno','$checkin','$checkout')";
                     $conn->query($query2) or die("Error");
-                    header('Location: reservation4.php');
+                     header('Location: reservation4.php');
                   }
                 ?>
               </div>

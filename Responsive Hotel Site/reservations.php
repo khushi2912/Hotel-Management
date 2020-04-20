@@ -2,14 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Feedbacks</title>
+    <title>Employees</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/superfish.css">
-    <link rel="stylesheet" href="css/cs-select.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cs-select.css">
+
 
     <style>
     body {
@@ -47,7 +48,7 @@
     }
 
     .table_style {
-        width: 220px;
+        width: 113px;
         height: 30px;
     }
     </style>
@@ -65,17 +66,17 @@
 						<ul class="sf-menu" id="fh5co-primary-menu">
 							<li><a href="customer.php">Customers</a></li>
 							<li>
-								<a class="fh5co-sub-ddown">Employees</a>
+								<a class="fh5co-sub-ddown active">Employees</a>
 								<ul class="fh5co-sub-menu">
 									<li><a href="employees.php">View employees</a></li>
-									<li><a href="employeeadd.php">Add employee</a></li>
-									<li><a href="employeeupdate.php">Update employee detail</a></li>
-									<li><a href="employeedelete.php">Remove employee</a></li>
+									<li><a href="employeeadd.html ">Add employee</a></li>
+									<li><a href="employeeupdate.html">Update employee detail</a></li>
+									<li><a href="employeedelete.html">Remove employee</a></li>
 								</ul>
 							</li>
 							<li><a href="reservations.php">Reservations</a></li>
 							<li><a href="bills.php">Bills</a></li>
-							<li><a class="active" href="feedback.php">Feedbacks</a></li>
+							<li><a href="feedback.php">Feedbacks</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -90,12 +91,12 @@
                         <div class="panel panel-default" style="width:80%;height:400px;text-align:center;margin-left:90px">
                             <?php
                                 include("dbconnect.php");
-                                $sql = "SELECT * FROM feedback";
+                                $sql = "SELECT * FROM reservations";
                                 $name = $conn->query($sql);
-                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:35%'><tr><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;FID</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Rating</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Comment</th></tr>";
+                                echo "<table style='border:3px solid black;margin:auto;position:relative;top:29%'><tr><th class='table_style'>&emsp;&emsp;&emsp;&emsp;RID</th><th class='table_style'>&emsp;&emsp;&emsp;CID</th><th class='table_style'>&emsp;&emsp;&emsp;RNo</th><th class='table_style'>&emsp;&emsp;&emsp;CheckIn</th><th class='table_style'>&emsp;&emsp;&emsp;&emsp;CheckOut</th></tr>";
                                 while($row = $name->fetch_assoc())
                                 {
-                                    echo "<tr><td class='table_style'>".$row["FID"]."</td><td class='table_style'>".$row["Rating"]."</td><td class='table_style'>".$row["Comment"]."</td></tr>";
+                                    echo "<tr><td class='table_style'>".$row["RID"]."</td><td class='table_style'>".$row["CID"]."</td><td class='table_style'>".$row["RNo"]."</td><td class='table_style'>".$row["CheckIn"]."</td><td class='table_style'>".$row["CheckOut"]."</td></tr>";
                                 }
                                 echo "</table>";
                             ?>
