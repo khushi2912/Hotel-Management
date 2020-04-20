@@ -64,8 +64,7 @@
 		</header>
 	</div>
 
-	<?php
-	
+
 	<!-- end:fh5co-header -->
 	<aside id="fh5co-hero" class="js-fullheight">
 		<div class="flexslider js-fullheight">

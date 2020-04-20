@@ -48,6 +48,11 @@
       background: rgba(255, 255, 255, 0.8);
       box-shadow: rgba(0, 0, 0, 0.3) 1px 4px 9px;
     }
+
+    .table_style {
+        width: 100px;
+        height: 30px;
+    }
   </style>
   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -68,9 +73,9 @@
                   <div class="form-group">
                     <label for="room">Choose a Room:</label>
                     <select id="room" name="room">
-    									<option value="room1">Deluxe</option>
-    									<option value="room2">Super Deluxe</option>
-    									<option value="room3">Executive Suite</option>
+    									<option value="Deluxe">Deluxe</option>
+    									<option value="Super Deluxe">Super Deluxe</option>
+    									<option value="Executive Suite">Executive Suite</option>
                     </select>
                   </div>
 
@@ -85,29 +90,71 @@
                   
                   <div class="form-group">
                     <label for="Arrive">Arrival:</label>
-                    <input type="date" name="Arrive" id="Arrive" class="form-control input-sm" placeholder="Arrival" required>
+                    <input type="text" name="Arrive" id="Arrive" class="form-control input-sm" placeholder="yyyy-mm-dd" required>
                   </div>
                   
                   <div class="form-group">
                     <label for="Depart">Departure:</label>
-                    <input type="date" name="Depart" id="Depart" class="form-control input-sm" placeholder="Departure" required>
+                    <input type="text" name="Depart" id="Depart" class="form-control input-sm" placeholder="yyyy-mm-dd" required>
                   </div>
                   
                   <button name="Check" class="btn btn-info btn-block">Check Availability</button>
+                  <br><br>
 
-                  <input type="text" name="rno" id="rno" class="form-control input-sm" placeholder="Room No" required>
-
-                  <input type="submit" value="Proceed" class="btn btn-info btn-block">
+                 <!-- <input type="text" name="rno" id="rno" class="form-control input-sm" placeholder="Room No" required>
+  -->
                 </form>
                 <?php
                   include("dbconnect.php");
-                  if(isset($_POST['submitc']))
+                  if(isset($_POST['Check']))
                   {
                     $roomt=$_POST['room'];
-                    $query2="SELECT room.RNO,room.Beds,room.Fare,room.Status,reservation.CheckOut FROM room LEFT OUTER JOIN reservation ON room.RNO=reservation.RNO WHERE room.RType=CASE when $roomt = 'Deluxe' then " ;
-
+                    $checkin =$_POST['Arrive'];
+                    $checkout=$_POST['Depart'];
+                    $_SESSION['Arrive']=$_POST['Arrive'];   // send a=checkin and checkout to another page to calculate amount
+                    $_SESSION['Depart']=$_POST['Depart'];
+                    //$depart=$_SESSION
+                    $query1="SELECT room.RNo,room.Beds,room.Fare,room.Status,reserve.CheckIn,reserve.CheckOut from room left join (SELECT RNo, max(CheckIn) CheckIn, max(CheckOut) CheckOut FROM reservations group by RNO) reserve on room.RNo = reserve.RNo WHERE room.RType = '$roomt'";
+                    //$conn->query($query1) or die("Error");
+                    $name= $conn->query($query1);
+                    echo "<table style='border:3px solid black;margin:auto;position:relative;top:15%'><tr><th class='table_style'>RNo</th><th class='table_style'>Beds</th><th class='table_style'>Fare</th></tr>";
+                    while($row = $name->fetch_assoc())
+                    {
+                     if($row['CheckOut']<$checkin or $row['CheckIn']>$checkout)
+                     {
+                        echo "<tr><td class='table_style'>".$row["RNo"]."</td><td class='table_style'>".$row["Beds"]."</td><td class='table_style'>".$row["Fare"]."</td></tr>";
+                      }
+                    }
+                    echo "</table>";
+                    echo "<br>";  
+                  }
+                ?>  
+                <form method="POST">
+                <div class="form-group">
+                  <label for="rno">SELECT ROOM NUMBER</label>
+                  <input type="text" name="rno" id="rno" class="form-control input-sm" required>
+                </div>  
+                <button name="Proceed" class="btn btn-info btn-block">Proceed</button>
+                </form>
+                <?php
+                  include("dbconnect.php");
+                  if(isset($_POST['Proceed']))
+                  {
+                    $aadhar1=$_SESSION['aadharc'];
+                    $CID="SELECT CID from customer where Aadhar='$aadhar1'";
+                    $CID2=$conn->query($CID);
+                    $rno=$_POST['rno'];
+                    $_SESSION['rno']=$_POST['rno'];     // send roomno to page 4 to know its fare
+                    while($row=$CID2->fetch_assoc())
+                    {
+                      $CID3=$row['CID'];
+                    }
+                    $query2="INSERT INTO reservations VALUES(NULL,'$CID3','$rno','$checkin','$checkout')";
+                    $conn->query($query2) or die("Error");
+                    header('Location: reservation4.php');
+                  }
+                ?>
               </div>
-            
             </div>
           </div>
         </div>

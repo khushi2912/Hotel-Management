@@ -88,6 +88,7 @@ h1 {
                                         $_SESSION['aadharc']=$_POST['aadharc'];*/
                                         $cardnumber=$_POST['cardNumber'];
                                         
+
                                     }
                                 ?>
                             </div>

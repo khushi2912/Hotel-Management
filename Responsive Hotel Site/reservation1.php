@@ -56,25 +56,7 @@ h1 {
 </head>
 <body>
 
-   <!-- <div id="fh5co-header">
-		<header id="fh5co-header-section">
-			<div class="container">
-				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-					<h1 id="fh5co-logo"><a>VACATION</a></h1>
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li><a class="active" href="index.html">Home</a></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="login.html">Admin</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-	</div>-->
+   
     <section class="con2">
         <div class="container">
             <div class="container" id="container1">
